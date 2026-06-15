@@ -17,6 +17,9 @@ import Footer from './components/Footer';
 import { CustomRgbColor } from './types';
 import { RGB_OPTIONS } from './data';
 
+// Import the mouse image asset for Vite-safe compiling and Netlify production compatibility
+import carezMouseImg from './assets/images/carez_mouse_1780661465376.png';
+
 export default function App() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<CustomRgbColor>('lime');
@@ -24,8 +27,8 @@ export default function App() {
   const [showToast, setShowToast] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>('');
 
-  // Path to our dynamically generated asset
-  const mouseImagePath = '/src/assets/images/carez_mouse_1780661465376.png';
+  // Path to our dynamically generated asset resolved securely through Vite bundler
+  const mouseImagePath = carezMouseImg;
 
   const handleBuyNowTrigger = () => {
     setIsOrderModalOpen(true);
