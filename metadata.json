@@ -1,0 +1,6 @@
+{
+  "name": "Carez Gaming Mouse",
+  "description": "A high-converting, next-generation product landing and customizer website for the Carez Gaming Mouse.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
