@@ -1,0 +1,32 @@
+# Netlify Configuration File
+# Learn more at: http://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Command to compile the Vite React application
+  command = "npm run build"
+  
+  # Directory where compiled static files are written
+  publish = "dist"
+
+# Single Page Application (SPA) routing fallback rule:
+# This ensures that deep URLs or refreshed pages route back to index.html and let 
+# client-side routing take care of the views instead of throwing a generic 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Performance Optimized Custom Headers
+[[headers]]
+  # Cache static assets securely and aggressively (Vite hashes filename assets)
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Global security headers for client-side pages
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
